@@ -311,14 +311,37 @@
 			border-radius: 50%;
 			overflow: hidden;
 			background: radial-gradient(circle at top, #fff, #dfe7ef 48%, #c5d3df 100%);
+				display: grid;
+				place-items: center;
 		}
 
-		.portrait-inner img {
-			display: block;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
+			.avatar-mark {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+
+			.avatar-mark .head {
+				fill: #8fa2a5;
+			}
+
+			.avatar-mark .body {
+				fill: #8fa2a5;
+			}
+
+			.avatar-mark .eyes,
+			.avatar-mark .smile {
+				stroke: #fff;
+				stroke-linecap: round;
+			}
+
+			.avatar-mark .eyes {
+				stroke-width: 6;
+			}
+
+			.avatar-mark .smile {
+				fill: none;
+				stroke-width: 8;
 		}
 
 		.profile-title {
@@ -798,7 +821,14 @@
 					<aside class="profile-card" aria-label="个人简介卡片">
 						<div class="portrait">
 							<div class="portrait-inner" aria-hidden="true">
-								<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%236f88a0'/><stop offset='100%' stop-color='%23a9b8a7'/></linearGradient></defs><rect width='240' height='240' rx='120' fill='%23dfe7ef'/><circle cx='120' cy='90' r='42' fill='url(%23g)'/><path d='M56 202c12-42 42-62 64-62s52 20 64 62' fill='url(%23g)' opacity='0.95'/><circle cx='104' cy='84' r='6' fill='%23fff'/><circle cx='136' cy='84' r='6' fill='%23fff'/><path d='M96 105c16 14 32 14 48 0' fill='none' stroke='%23fff' stroke-width='8' stroke-linecap='round'/></svg>" alt="阚茜头像" />
+								<svg class="avatar-mark" viewBox="0 0 240 240" role="img" aria-label="阚茜头像" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="120" cy="120" r="112" fill="#dde6ee" />
+									<circle class="head" cx="120" cy="88" r="40" />
+									<circle class="eyes" cx="106" cy="84" r="4" />
+									<circle class="eyes" cx="134" cy="84" r="4" />
+									<path class="smile" d="M104 98c9 8 23 8 32 0" />
+									<path class="body" d="M66 194c10-36 38-54 54-54s44 18 54 54" />
+								</svg>
 							</div>
 						</div>
 						<h2 class="profile-title">个人简介</h2>
