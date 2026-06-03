@@ -311,37 +311,16 @@
 			border-radius: 50%;
 			overflow: hidden;
 			background: radial-gradient(circle at top, #fff, #dfe7ef 48%, #c5d3df 100%);
-				display: grid;
-				place-items: center;
+			display: grid;
+			place-items: center;
 		}
 
-			.avatar-mark {
-				width: 100%;
-				height: 100%;
-				display: block;
-			}
-
-			.avatar-mark .head {
-				fill: #8fa2a5;
-			}
-
-			.avatar-mark .body {
-				fill: #8fa2a5;
-			}
-
-			.avatar-mark .eyes,
-			.avatar-mark .smile {
-				stroke: #fff;
-				stroke-linecap: round;
-			}
-
-			.avatar-mark .eyes {
-				stroke-width: 6;
-			}
-
-			.avatar-mark .smile {
-				fill: none;
-				stroke-width: 8;
+		.portrait-inner img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center top;
 		}
 
 		.profile-title {
@@ -821,14 +800,7 @@
 					<aside class="profile-card" aria-label="个人简介卡片">
 						<div class="portrait">
 							<div class="portrait-inner" aria-hidden="true">
-								<svg class="avatar-mark" viewBox="0 0 240 240" role="img" aria-label="阚茜头像" xmlns="http://www.w3.org/2000/svg">
-									<circle cx="120" cy="120" r="112" fill="#dde6ee" />
-									<circle class="head" cx="120" cy="88" r="40" />
-									<circle class="eyes" cx="106" cy="84" r="4" />
-									<circle class="eyes" cx="134" cy="84" r="4" />
-									<path class="smile" d="M104 98c9 8 23 8 32 0" />
-									<path class="body" d="M66 194c10-36 38-54 54-54s44 18 54 54" />
-								</svg>
+								<img src="avatar.jpg" alt="阚茜头像" />
 							</div>
 						</div>
 						<h2 class="profile-title">个人简介</h2>
