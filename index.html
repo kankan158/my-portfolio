@@ -346,6 +346,16 @@
 			border: 1px solid rgba(72, 82, 95, 0.08);
 		}
 
+		.profile-item.expandable {
+			cursor: pointer;
+			transition: 0.22s ease;
+		}
+
+		.profile-item.expandable:hover {
+			background: rgba(255, 255, 255, 0.86);
+			transform: translateY(-1px);
+		}
+
 		.profile-icon {
 			width: 42px;
 			height: 42px;
@@ -374,6 +384,101 @@
 			color: #3c4655;
 			line-height: 1.75;
 			font-size: 0.98rem;
+		}
+
+		.profile-details {
+			display: grid;
+		}
+
+		.profile-details summary {
+			display: grid;
+			grid-template-columns: 42px 1fr;
+			gap: 14px;
+			grid-column: 1 / -1;
+			list-style: none;
+			cursor: pointer;
+		}
+
+		.profile-details summary::-webkit-details-marker {
+			display: none;
+		}
+
+		.profile-summary {
+			display: grid;
+			gap: 6px;
+		}
+
+		.profile-title-row {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 12px;
+		}
+
+		.profile-aside {
+			color: #8b95a5;
+			font-size: 0.78rem;
+			white-space: nowrap;
+		}
+
+		.profile-more {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			margin-top: 6px;
+			color: var(--blue-deep);
+			font-size: 0.82rem;
+			font-weight: 700;
+		}
+
+		.profile-more i {
+			transition: transform 0.2s ease;
+		}
+
+		.profile-details[open] .profile-more i {
+			transform: rotate(180deg);
+		}
+
+		.profile-detail {
+			grid-column: 2;
+			margin-top: 12px;
+			padding-top: 12px;
+			border-top: 1px solid rgba(72, 82, 95, 0.1);
+			display: grid;
+			gap: 12px;
+			max-height: 340px;
+			overflow-y: auto;
+			padding-right: 6px;
+		}
+
+		.profile-detail::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		.profile-detail::-webkit-scrollbar-thumb {
+			background: rgba(111, 136, 160, 0.28);
+			border-radius: 999px;
+		}
+
+		.profile-detail-block {
+			display: grid;
+			gap: 4px;
+		}
+
+		.profile-detail-block strong {
+			color: #303948;
+			font-size: 0.9rem;
+		}
+
+		.profile-detail-block span {
+			color: #7b8494;
+			font-size: 0.78rem;
+		}
+
+		.profile-detail-block p {
+			color: #596577;
+			font-size: 0.9rem;
+			line-height: 1.7;
 		}
 
 		.section {
@@ -583,6 +688,210 @@
 			line-height: 1.8;
 		}
 
+		.insight-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			margin-top: 18px;
+			color: var(--blue-deep);
+			font-weight: 700;
+			position: relative;
+			z-index: 1;
+		}
+
+		.insight-link i {
+			transition: transform 0.2s ease;
+		}
+
+		.insight-link:hover i {
+			transform: translateX(3px);
+		}
+
+		.insight-card.coming-soon {
+			min-height: 248px;
+			padding: 0;
+			display: grid;
+			place-items: stretch;
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(247, 250, 248, 0.74));
+			border-color: rgba(111, 136, 160, 0.14);
+			box-shadow: var(--shadow-soft);
+		}
+
+		.insight-card.coming-soon::after {
+			display: none;
+		}
+
+		.soon-stage {
+			position: relative;
+			display: grid;
+			place-items: center;
+			min-height: 248px;
+			padding: 28px 18px;
+			border: 1px dashed rgba(111, 136, 160, 0.22);
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.soon-stage::after {
+			content: "";
+			position: absolute;
+			inset: auto -34px -42px auto;
+			width: 130px;
+			height: 130px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(158, 180, 198, 0.3), transparent 68%);
+		}
+
+		.soon-rocket {
+			position: relative;
+			z-index: 1;
+			font-size: 2rem;
+			animation: floatRocket 3.2s ease-in-out infinite;
+		}
+
+		.soon-particles {
+			position: absolute;
+			inset: 46px 0 auto;
+			height: 90px;
+			pointer-events: none;
+		}
+
+		.soon-particles span {
+			position: absolute;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background: var(--blue-deep);
+			opacity: 0.42;
+			animation: driftParticle 3.8s ease-in-out infinite;
+		}
+
+		.soon-particles span:nth-child(1) {
+			left: 28%;
+			top: 44px;
+			animation-delay: -0.6s;
+		}
+
+		.soon-particles span:nth-child(2) {
+			left: 39%;
+			top: 16px;
+			width: 6px;
+			height: 6px;
+			animation-delay: -1.4s;
+		}
+
+		.soon-particles span:nth-child(3) {
+			left: 53%;
+			top: 12px;
+			animation-delay: -2.2s;
+		}
+
+		.soon-particles span:nth-child(4) {
+			left: 64%;
+			top: 50px;
+			width: 6px;
+			height: 6px;
+			animation-delay: -0.2s;
+		}
+
+		.soon-particles span:nth-child(5) {
+			left: 45%;
+			top: 70px;
+			width: 5px;
+			height: 5px;
+			opacity: 0.36;
+			animation-delay: -2.8s;
+		}
+
+		.soon-title {
+			position: relative;
+			z-index: 1;
+			margin-top: 22px;
+			width: min(14rem, 100%);
+			height: 1.8rem;
+			overflow: hidden;
+			color: #465469;
+			font-size: 1rem;
+			letter-spacing: 0.08em;
+		}
+
+		.soon-title span {
+			position: absolute;
+			inset: 0;
+			display: grid;
+			place-items: center;
+			opacity: 0;
+			transform: translateY(12px);
+			animation: rotateSoonText 6s ease-in-out infinite;
+		}
+
+		.soon-title span:nth-child(2) {
+			animation-delay: 2s;
+		}
+
+		.soon-title span:nth-child(3) {
+			animation-delay: 4s;
+		}
+
+		.soon-caret {
+			width: 8px;
+			height: 20px;
+			margin: 20px auto 12px;
+			border-radius: 2px;
+			background: var(--blue-deep);
+			animation: blinkCaret 1.25s steps(2, start) infinite;
+		}
+
+		.soon-note {
+			color: rgba(95, 108, 126, 0.44);
+			font-family: "Noto Serif SC", serif;
+			font-size: 0.72rem;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+		}
+
+		@keyframes floatRocket {
+			0%,
+			100% {
+				transform: translateY(0) rotate(-8deg);
+			}
+
+			50% {
+				transform: translateY(-8px) rotate(-2deg);
+			}
+		}
+
+		@keyframes driftParticle {
+			0%,
+			100% {
+				transform: translate3d(0, 0, 0);
+			}
+
+			50% {
+				transform: translate3d(5px, -8px, 0);
+			}
+		}
+
+		@keyframes blinkCaret {
+			50% {
+				opacity: 0.28;
+			}
+		}
+
+		@keyframes rotateSoonText {
+			0%,
+			28% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			34%,
+			100% {
+				opacity: 0;
+				transform: translateY(-12px);
+			}
+		}
+
 		.contact-grid {
 			grid-template-columns: 1fr;
 		}
@@ -756,7 +1065,7 @@
 					<span>Xi Kan</span>
 				</a>
 				<nav class="nav-links" aria-label="页面导航">
-					<a href="#about">关于我</a>
+					<a href="#about">实习经历</a>
 					<a href="#projects">项目经历</a>
 					<a href="#insights">观点洞察</a>
 					<a href="#contact">联系我</a>
@@ -791,7 +1100,7 @@
 						</div>
 
 						<div class="quick-nav" aria-label="快捷跳转">
-							<a href="#about"><i class="fa-regular fa-user"></i> 关于我</a>
+							<a href="#about"><i class="fa-regular fa-user"></i> 实习经历</a>
 							<a href="#projects"><i class="fa-regular fa-folder-open"></i> 项目经历</a>
 							<a href="#insights"><i class="fa-regular fa-lightbulb"></i> 观点洞察</a>
 						</div>
@@ -805,27 +1114,76 @@
 						</div>
 						<h2 class="profile-title">个人简介</h2>
 						<div class="profile-list">
-							<div class="profile-item">
-								<div class="profile-icon"><i class="fa-solid fa-circle-user"></i></div>
-								<div>
-									<h3>职业状态</h3>
-									<p>AI 产品与工程协作方向，关注把需求拆解成可执行方案。</p>
+							<details class="profile-item profile-details expandable">
+								<summary>
+									<div class="profile-icon"><i class="fa-solid fa-briefcase"></i></div>
+									<div class="profile-summary">
+										<h3>实习经历</h3>
+										<p>南京元新数智慧科技有限公司、江苏省春雨教育集团、徐州市万卷图书有限公司。</p>
+										<span class="profile-more">查看更多 <i class="fa-solid fa-chevron-down"></i></span>
+									</div>
+								</summary>
+								<div class="profile-detail">
+									<div class="profile-detail-block">
+										<strong>南京元新数智慧科技有限公司</strong>
+										<span>2025.09 - 2025.11｜AI 产品经理实习</span>
+										<p>参与数字化 AI 项目全周期产品落地，负责需求调研拆解、产品方案设计、跨团队协同与版本跟进；在眼底医学影像智能诊断系统中衔接医学诊断标准、模型训练规范与产品验收指标。</p>
+									</div>
+									<div class="profile-detail-block">
+										<strong>江苏省春雨教育集团</strong>
+										<span>2025.05 - 2025.09｜AI 教辅内容落地</span>
+										<p>协同产品、教研与技术团队推进 AI 内容生成、智能批改等业务优化，兼顾项目节点、内容质量与跨岗位协作闭环。</p>
+									</div>
+									<div class="profile-detail-block">
+										<strong>徐州市万卷图书有限公司</strong>
+										<span>2024.01 - 2024.03｜ERP 与数据治理</span>
+										<p>负责 ERP 系统运维、权限配置和销售订单流程管控，基于 SQL 完成多条件查询、数据拆分、统计汇总与业务报表输出。</p>
+									</div>
+									<div class="profile-detail-block">
+										<strong>硕士横向课题</strong>
+										<span>2025.12 - 2026.06｜AI 体测平台与 EEG 人机信任识别</span>
+										<p>参与赤兔智慧校园 AI 体测平台和 EEG 跨阶段人机信任智能识别系统，覆盖需求拆解、算法协同、实验数据处理、模型评测和产品化落地。</p>
+									</div>
 								</div>
-							</div>
+							</details>
 							<div class="profile-item">
 								<div class="profile-icon"><i class="fa-solid fa-graduation-cap"></i></div>
 								<div>
-									<h3>学历</h3>
-									<p>计算机技术硕士在读，偏向智能系统与交互体验。</p>
+									<div class="profile-title-row">
+										<h3>学历</h3>
+										<span class="profile-aside">2027.06 毕业</span>
+									</div>
+									<p>2024 级计算机硕士在读（南京审计大学）。</p>
 								</div>
 							</div>
-							<div class="profile-item">
-								<div class="profile-icon"><i class="fa-solid fa-bolt"></i></div>
-								<div>
-									<h3>当前关注</h3>
-									<p>个人开源项目、知识沉淀和更自然的多模态交互体验。</p>
+							<details class="profile-item profile-details expandable">
+								<summary>
+									<div class="profile-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+									<div class="profile-summary">
+										<h3>个人技能</h3>
+										<p>具备 AI 方案落地经验、计算机专业基础与深度学习能力，熟悉 Agent、RAG、LLM 应用和低代码平台。</p>
+										<span class="profile-more">查看更多 <i class="fa-solid fa-chevron-down"></i></span>
+									</div>
+								</summary>
+								<div class="profile-detail">
+									<div class="profile-detail-block">
+										<strong>AI 方案落地</strong>
+										<p>有相关 AI 应用工作经历，具备 AI Agent 在复杂场景的解决方案设计经验，拥有 LLM 在专有领域从设计到投产的成功经验，推动 AI 在多行业与领域落地应用。</p>
+									</div>
+									<div class="profile-detail-block">
+										<strong>AI 技术认知</strong>
+										<p>具备计算机专业背景和深度学习基础，熟悉 Transformer、BERT、GAN 和扩散模型，了解 AI/Agent 技术架构、CoT 推理、RAG、上下文工程、LangChain 等技术。</p>
+									</div>
+									<div class="profile-detail-block">
+										<strong>模型与平台实践</strong>
+										<p>熟悉 Codex、Gemini、GPT、Claude 等主流大模型，对模型落地中的选型、评测、调优和微调有经验，熟练掌握智能体与工作流搭建、低代码平台（Coze、Dify）和企业级 API 调用。</p>
+									</div>
+									<div class="profile-detail-block">
+										<strong>持续学习与开源跟进</strong>
+										<p>对 AI 有热情，长期追踪 arXiv 相关领域论文与 GitHub 等开源社区，了解 LLMs、Agent 与 AIGC 的前沿演进，重度使用 Vibe coding，持续关注 OpenClaw、Skill、MCP、Agent Team 和长期记忆等技术方向。</p>
+									</div>
 								</div>
-							</div>
+							</details>
 						</div>
 					</aside>
 				</div>
@@ -835,49 +1193,48 @@
 				<div class="container">
 					<div class="section-head">
 						<div>
-							<h2 class="section-title">关于我</h2>
-							<p class="section-subtitle">下面这部分是展开版信息，重点补充经历、能力和技术偏好，避免和右侧摘要重复。</p>
+							<h2 class="section-title">实习经历</h2>
+							<p class="section-subtitle">围绕 AI 产品落地、教育内容智能化和业务数据治理展开实践，体现需求拆解、跨团队协同与数据分析能力。</p>
 						</div>
 					</div>
 
 					<div class="info-grid">
 						<article class="card info-card">
 							<div class="top">
-								<div class="info-icon"><i class="fa-solid fa-school"></i></div>
-								<h3>学历</h3>
+								<div class="info-icon"><i class="fa-solid fa-eye"></i></div>
+								<h3>南京元新数智慧科技有限公司</h3>
 							</div>
-							<p>计算机技术硕士在读，主要关注 AI 产品工程化、智能体系统和人机交互体验设计，喜欢把抽象概念落到可执行的页面和流程里。</p>
-							<div class="tag-wrap">
-								<span class="tag">硕士在读</span>
-								<span class="tag">技术方向</span>
-								<span class="tag">交互体验</span>
-							</div>
-						</article>
-
-						<article class="card info-card">
-							<div class="top">
-								<div class="info-icon"><i class="fa-solid fa-building"></i></div>
-								<h3>工作经历</h3>
-							</div>
-							<p>曾在 AI 相关业务中负责产品协作、需求梳理与方案推进，也参与过业务流程的自动化优化。更习惯在多角色协作里做连接和推进，而不是只盯着单点输出。</p>
+							<p>AI 产品经理实习，深度参与数字化 AI 项目全周期落地。负责需求调研拆解、产品方案设计、跨团队协同与版本跟进，并在眼底医学影像智能诊断系统中衔接医学诊断标准、模型训练规范和产品验收指标，协同算法团队将多分类疾病识别准确率优化至 90%。</p>
 							<div class="tag-wrap">
 								<span class="tag">AI 产品</span>
-								<span class="tag">流程优化</span>
-								<span class="tag">跨团队协作</span>
+								<span class="tag">医学影像</span>
+								<span class="tag">算法协同</span>
 							</div>
 						</article>
 
 						<article class="card info-card">
 							<div class="top">
-								<div class="info-icon"><i class="fa-solid fa-sliders"></i></div>
-								<h3>核心技能</h3>
+								<div class="info-icon"><i class="fa-solid fa-book-open"></i></div>
+								<h3>江苏省春雨教育集团</h3>
 							</div>
-							<p>具备前端展示、数据整理、方案表达与 Agent 流程理解能力，能把复杂问题拆成可执行步骤，也能用清晰的结构把结果讲明白。</p>
+							<p>参与 AI 教辅内容落地全链路，协同产品、教研与技术团队完成需求拆解、内容方案推进和项目节点管理。围绕教辅场景推进 AI 内容生成、智能批改等业务优化，兼顾落地效率、内容质量与跨岗位协作闭环。</p>
 							<div class="tag-wrap">
-								<span class="tag">HTML / CSS</span>
-								<span class="tag">AI 方案设计</span>
-								<span class="tag">文档表达</span>
-								<span class="tag">项目协作</span>
+								<span class="tag">AI 教辅</span>
+								<span class="tag">内容落地</span>
+								<span class="tag">项目推进</span>
+							</div>
+						</article>
+
+						<article class="card info-card">
+							<div class="top">
+								<div class="info-icon"><i class="fa-solid fa-database"></i></div>
+								<h3>徐州市万卷图书有限公司</h3>
+							</div>
+							<p>负责 ERP 业务系统运维与后台数据治理，熟悉用户权限配置、销售订单全生命周期流程管控。依托 SQL 完成业务数据库多条件联合查询、订单数据精细化拆分与多维度汇总统计，输出标准化业务报表，支撑经营数据分析与管理决策。</p>
+							<div class="tag-wrap">
+								<span class="tag">ERP 运维</span>
+								<span class="tag">SQL 查询</span>
+								<span class="tag">数据治理</span>
 							</div>
 						</article>
 					</div>
@@ -949,6 +1306,34 @@
 							</div>
 							<a class="project-link" href="#contact"><span>了解项目细节</span><i class="fa-solid fa-arrow-right"></i></a>
 						</article>
+
+						<article class="card project-card">
+							<div class="project-head">
+								<h3>EEG 跨阶段人机信任智能识别系统</h3>
+								<span class="project-badge"><i class="fa-solid fa-brain"></i> 项目经历</span>
+							</div>
+							<p>面向 VR 人机协作场景，搭建 EEG 脑电采集、预处理、时序建模与信任轨迹分析流程；设计 KD-Hybrid 融合知识蒸馏与迁移学习方案，结合 CNN、BiLSTM 和多头注意力建模脑电时空特征，测试准确率达 77.78%，AUC 达 88.89%。</p>
+							<div class="project-meta">
+								<span class="tag">EEG 脑电</span>
+								<span class="tag">知识蒸馏</span>
+								<span class="tag">时序建模</span>
+							</div>
+							<a class="project-link" href="#contact"><span>了解项目细节</span><i class="fa-solid fa-arrow-right"></i></a>
+						</article>
+
+						<article class="card project-card">
+							<div class="project-head">
+								<h3>赤兔智慧校园 AI 体测平台</h3>
+								<span class="project-badge"><i class="fa-solid fa-person-running"></i> 项目经历</span>
+							</div>
+							<p>聚焦校园体测人工成本高、成绩误差大和过程难追溯等痛点，牵头计算机视觉与边缘计算产品落地；拆解 8 项国标体测规则并转化为算法判定指标和产品 PRD，协同优化 OpenPose+2D-CISS 人体检测模型，识别准确率提升至 99.5%。</p>
+							<div class="project-meta">
+								<span class="tag">计算机视觉</span>
+								<span class="tag">体测平台</span>
+								<span class="tag">产品 PRD</span>
+							</div>
+							<a class="project-link" href="#contact"><span>了解项目细节</span><i class="fa-solid fa-arrow-right"></i></a>
+						</article>
 					</div>
 				</div>
 			</section>
@@ -958,25 +1343,42 @@
 					<div class="section-head">
 						<div>
 							<h2 class="section-title">观点 / 洞察</h2>
-							<p class="section-subtitle">展示你对技术、产品或工程实践的思考，适合放短标题，后续也能链接到博客文章。</p>
 						</div>
 					</div>
 
 					<div class="insight-grid">
 						<article class="card insight-card">
 							<span class="num">01</span>
-							<h3>AI 产品不是“功能堆叠”，而是流程重塑</h3>
-							<p>真正有价值的 AI 方案，重点在于减少人工切换和重复判断，而不是单纯把模型接进页面。</p>
+							<h3>RAG 技术全迭代解析：从传统检索到 Graph RAG、Agentic RAG</h3>
+							<p>梳理 RAG 从“检索 + 生成”到知识图谱增强、多 Agent 自主决策的演进路径，比较传统 RAG、GraphRAG 与 AgenticRAG 在复杂知识场景中的能力边界。</p>
+							<a class="insight-link" href="https://blog.csdn.net/m0_72274422/article/details/161695704" target="_blank" rel="noopener noreferrer"><span>阅读</span><i class="fa-solid fa-arrow-right"></i></a>
 						</article>
 						<article class="card insight-card">
 							<span class="num">02</span>
-							<h3>工程化的核心，是让方案可复用、可解释</h3>
-							<p>从提示词、知识库到监控与评估，越能被描述清楚的系统，越容易在团队里持续推进。</p>
+							<h3>VSCode 保姆级安装配置：汉化、Codex AI 插件与 Copilot Pro</h3>
+							<p>面向 VSCode 新手整理一站式配置流程，覆盖国内镜像下载、中文语言包、Python/C++ 插件、Codex 插件接入与 GitHub 学生认证等常见环节。</p>
+							<a class="insight-link" href="https://blog.csdn.net/m0_72274422/article/details/161695925?spm=1001.2014.3001.5501" target="_blank" rel="noopener noreferrer"><span>阅读</span><i class="fa-solid fa-arrow-right"></i></a>
 						</article>
-						<article class="card insight-card">
-							<span class="num">03</span>
-							<h3>好的个人站点，应该像一份能被快速读懂的简历</h3>
-							<p>结构清晰、层级明确、信息密度适中，比复杂炫技更能帮助别人准确了解你的能力。</p>
+						<article class="card insight-card coming-soon" aria-label="下一篇文章正在创作中">
+							<div class="soon-stage">
+								<div class="soon-particles" aria-hidden="true">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+								<div>
+									<div class="soon-rocket" aria-hidden="true">🚀</div>
+									<div class="soon-title" aria-label="下一篇文章正在创作中，敬请期待">
+										<span>下一篇文章</span>
+										<span>正在创作中</span>
+										<span>敬请期待</span>
+									</div>
+									<div class="soon-caret" aria-hidden="true"></div>
+									<div class="soon-note">More coming soon</div>
+								</div>
+							</div>
 						</article>
 					</div>
 				</div>
