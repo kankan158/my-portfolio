@@ -387,14 +387,14 @@
 		}
 
 		.profile-details {
-			display: grid;
+			display: block;
+			width: 100%;
 		}
 
 		.profile-details summary {
 			display: grid;
 			grid-template-columns: 42px 1fr;
 			gap: 14px;
-			grid-column: 1 / -1;
 			list-style: none;
 			cursor: pointer;
 		}
@@ -440,15 +440,13 @@
 		}
 
 		.profile-detail {
-			grid-column: 2;
-			margin-top: 12px;
-			padding-top: 12px;
+			margin-top: 14px;
+			padding: 14px 8px 0 0;
 			border-top: 1px solid rgba(72, 82, 95, 0.1);
 			display: grid;
 			gap: 12px;
 			max-height: 340px;
 			overflow-y: auto;
-			padding-right: 6px;
 		}
 
 		.profile-detail::-webkit-scrollbar {
@@ -463,22 +461,28 @@
 		.profile-detail-block {
 			display: grid;
 			gap: 4px;
+			min-width: 0;
 		}
 
 		.profile-detail-block strong {
 			color: #303948;
 			font-size: 0.9rem;
+			line-height: 1.55;
+			overflow-wrap: break-word;
 		}
 
 		.profile-detail-block span {
 			color: #7b8494;
 			font-size: 0.78rem;
+			line-height: 1.55;
+			overflow-wrap: break-word;
 		}
 
 		.profile-detail-block p {
 			color: #596577;
 			font-size: 0.9rem;
 			line-height: 1.7;
+			overflow-wrap: break-word;
 		}
 
 		.section {
@@ -1141,8 +1145,8 @@
 									</div>
 									<div class="profile-detail-block">
 										<strong>硕士横向课题</strong>
-										<span>2025.12 - 2026.06｜AI 体测平台与 EEG 人机信任识别</span>
-										<p>参与赤兔智慧校园 AI 体测平台和 EEG 跨阶段人机信任智能识别系统，覆盖需求拆解、算法协同、实验数据处理、模型评测和产品化落地。</p>
+										<span>2026.04 - 2026.07｜英葡双语跨境 H5 漫剧付费平台｜全栈开发</span>
+										<p>协同开发英葡双语跨境 H5 漫剧付费平台，使用 Vue3 + NestJS 搭建前后端架构，设计 PG + Redis 数据存储方案，实现多端响应式、国际化、第三方登录、PayPal/Google Pay 付费、H5 跨设备存档等核心能力；开发全功能运营后台与数据统计模块，通过缓存优化和事务管控提升系统稳定性，支撑商业化付费闭环。</p>
 									</div>
 								</div>
 							</details>
